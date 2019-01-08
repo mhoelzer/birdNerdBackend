@@ -1,5 +1,5 @@
 const user = require("./User");
-const { router } = require("./authorize");
+const { router } = require("./Authorize");
 
 
 module.exports = {
