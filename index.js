@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.send("Heroku Server is running");
 });
 
-// app.use("/Authorize", controllers.authorize);
+app.use("/Authorize", controllers.authorize);
 // app.use("/Upload", controllers.books);
 // app.use("/User", controllers.user);
 
