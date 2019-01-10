@@ -18,8 +18,13 @@
   },
   "homepage": "https://github.com/mhoelzer/birdNerdBackend#readme",
   "dependencies": {
+    "bcrypt": "^3.0.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "pg": "^7.7.1",
     "sequelize": "^4.42.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.4.0"
   }
 }

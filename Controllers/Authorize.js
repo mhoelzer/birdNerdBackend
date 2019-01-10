@@ -52,6 +52,10 @@ router.post("/logout", (req, res) => {
     res.json({ success: true, message: 'logged out', })
 })
 
+router.get("/", (req, res) => {
+    res.send(console.log(User));
+})
+
 
 module.exports = {
     router
