@@ -1,7 +1,7 @@
 const express = require("express")
-
+const bcrypt = require("bcrypt");
 const Sequelize = require("sequelize")
-
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 const { User } = require("../Models")
@@ -9,20 +9,21 @@ const { User } = require("../Models")
 
 // register a new user
 router.post("/register", (req, res) => {
-    const { username, displayName, password } = req.body;
+    const { username, password } = req.body;
+    // console.log(username, password)
     User.create({
       username,
-      displayName,
       password
     })
+
+    
 
     .then(user =>
         res.json({
             username: user.get("username"),
-            displayname: user.get("displayname"),
             password: user.get("password")
-        })
-    ) .catch(error => {
+        }) )
+     .catch(error => {
         if (error instanceof Sequelize.ValidationError) {
           return res.status(400).send({ errors: error.errors });
         }
@@ -32,14 +33,17 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    const { username, password, displayname } = req.body;
+    const { username, password} = req.body;
     User.scope(null)
         .find({ where: { username } })
+        // .then((User) => {
+        //     console.log(User);
+        // })
         .then(User => {
-            if (password === User.get("password")) {
+            if (User && password === User.get("password")) {
                 const payload = { id: User.get('id'), }
                 console.log(password)
-                res.json({ id: payload.id, username, displayname, password, success: true })
+                res.json({ id: payload.id, username, password, success: true })
             } else {
                 res.json({ success: false })
             }
@@ -53,7 +57,7 @@ router.post("/logout", (req, res) => {
 })
 
 router.get("/", (req, res) => {
-    res.send(console.log(User));
+    // res.send(console.log(User));
 })
 
 
