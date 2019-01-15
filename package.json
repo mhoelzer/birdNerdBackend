@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "watch": "nodemon",
+    "postInstall": "sequelize db:migrate --url $DATABASE_URL",
+    "heroku-prebuild": "npm install -g sequelize-cli"
   },
   "repository": {
     "type": "git",
