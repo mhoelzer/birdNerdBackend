@@ -5,7 +5,7 @@ const Sequelize = require("sequelize");
 
 const { Notebook } = require("../Models");
 
-router.get("/notebook", (req, res) => {
+router.get("/:username/notebook", (req, res) => {
   const username = req.params.username;
   Notebook.findAll({ where: { username } })
     .then(notebookEntries => {
@@ -20,7 +20,7 @@ router.get("/notebook", (req, res) => {
     });
 });
 
-router.post("/notebook", (req, res) => {
+router.post("/:username/notebook", (req, res) => {
   const username = req.params.username;
   const { birdname, date, details, location } = req.body;
   let decoded;
