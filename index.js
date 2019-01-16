@@ -4,11 +4,6 @@ const cors = require("cors");
 const controllers = require("./Controllers");
 const app = express();
 
-const result = dotenv.config()
-
-if (result.error) {
-  throw result.error
-}
 
 app.set("port", process.env.PORT || 8000);
 
