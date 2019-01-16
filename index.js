@@ -1,4 +1,4 @@
-require("dotenv-safe").config({silent: true });
+require("dotenv-safe").config({allowEmptyValues: true, silent: true });
 const express = require("express");
 const cors = require("cors");
 const controllers = require("./Controllers");
