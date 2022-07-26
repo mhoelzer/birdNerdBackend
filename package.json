@@ -11,7 +11,7 @@
     "start": "node index.js",
     "watch": "nodemon",
     "postinstall": "sequelize db:migrate --url $DATABASE_URL",
-    "heroku-prebuild": "npm install -g sequelize-cli" 
+    "heroku-prebuild": "npm install -g sequelize-cli"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/mhoelzer/birdNerdBackend#readme",
   "dependencies": {
-    "bcrypt": "^3.0.3",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv-safe": "^6.1.0",
     "express": "^4.16.4",

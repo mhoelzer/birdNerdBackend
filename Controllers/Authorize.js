@@ -1,5 +1,5 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const Sequelize = require("sequelize");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
