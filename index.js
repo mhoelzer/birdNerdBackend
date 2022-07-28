@@ -4,7 +4,12 @@ const cors = require("cors");
 const controllers = require("./Controllers");
 const app = express();
 
+const aws = require('aws-sdk');
 
+let s3 = new aws.S3({
+  accessKeyId: process.env.S3_KEY,
+  secretAccessKey: process.env.S3_SECRET
+});
 app.set("port", process.env.PORT || 8000);
 
 app.use(express.json());
